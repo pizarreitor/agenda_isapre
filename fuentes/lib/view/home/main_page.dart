@@ -1,3 +1,4 @@
+import 'package:agenda_isapre/main.dart';
 import 'package:agenda_isapre/view/task/task_finaliced_listview.dart';
 import 'package:agenda_isapre/view/task/task_form_page.dart';
 import 'package:agenda_isapre/view/task/task_listview.dart';
@@ -14,7 +15,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-
+  
   List<Widget> bodyWidget = [
     const TaskListView(),
     const TaskFinalicedListView(),
@@ -24,12 +25,13 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
-
+    final theme = Theme.of(context).colorScheme;
+    
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: theme.inversePrimary, //Theme.of(context).colorScheme.inversePrimary,
         title: Text(localizations.taskForDo),
-      ),
+      ),      
       body: bodyWidget[_currentIndex], //TaskListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
