@@ -1,0 +1,1 @@
+ /Users/iramac/Proyectos/todo_isapre/agenda_isapre/agenda_isapre/fuentes/.dart_tool/flutter_build/7e20f7c7fa8e477c812fbd4581cec09f/native_assets.yaml: 

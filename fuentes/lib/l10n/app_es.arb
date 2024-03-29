@@ -1,0 +1,18 @@
+{
+  "taskForDo": "Tareas por realizar",
+  "taskFinalized": "Tareas finalizadas",
+  "save": "Guardar",  
+  "update": "Modificar",
+  "allTask": "Todas las tareas",
+  "finalized": "Completada",
+  "confirm": "Confirmar",
+  "confirmDelete": "¿Deseas eliminar la tarea?",
+  "okDelete": "Sí, Eliminar",
+  "cancel": "Cancelar",
+  "addTask": "Registrar tarea",
+  "title": "Tìtulo",
+  "detail": "detalle",
+  "addDetail": "agregar detalle",
+  "all": "Todos",
+  "titleApp" : "Agenda"  
+}

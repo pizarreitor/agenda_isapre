@@ -1,0 +1,18 @@
+{
+  "taskForDo": "Task for do",
+  "taskFinalized": "Completed tasks",
+  "save": "Save",  
+  "update": "Update",
+  "allTask": "All task",
+  "finalized": "Completed",
+  "confirm": "Confirm",
+  "confirmDelete": "Do you want to delete the task?",
+  "okDelete": "Yes, delete",
+  "cancel": "Cancel",
+  "addTask": "Add task",
+  "title": "Title",
+  "detail": "Detail",
+  "addDetail": "Add detail",
+  "all": "All",
+  "titleApp" : "TODO APP"  
+}
