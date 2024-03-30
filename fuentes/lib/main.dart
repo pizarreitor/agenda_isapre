@@ -22,7 +22,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp(      
+          debugShowCheckedModeBanner: false,    
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
