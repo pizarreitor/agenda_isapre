@@ -4,6 +4,7 @@ import 'package:agenda_isapre/view/task/task_form_page.dart';
 import 'package:agenda_isapre/view/task/task_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -30,9 +31,12 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.inversePrimary, //Theme.of(context).colorScheme.inversePrimary,
-        title: Text(localizations.taskForDo),
+        title: Text(localizations.taskForDo, style: TextStyle(fontSize: 28.sp),),
       ),      
-      body: bodyWidget[_currentIndex], //TaskListView(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: bodyWidget[_currentIndex],
+      ), //TaskListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

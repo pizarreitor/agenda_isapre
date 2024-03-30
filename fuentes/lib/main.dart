@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:agenda_isapre/theme/color_schemes.g.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   await setupLocator();
@@ -19,27 +20,32 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en'),
-          Locale('es'),
-        ],
-        title: 'TODO APP',
-        theme: ThemeData(
-          colorScheme: lightColorScheme,
-          useMaterial3: true,
-        ),
-        darkTheme: ThemeData(
-          useMaterial3: true,
-          colorScheme: darkColorScheme,
-        ),
-        home: const MainScreen(),
-        );
+    return ScreenUtilInit(
+      builder: (context, child) {
+        return MaterialApp(
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en'),
+              Locale('es'),
+            ],
+            title: 'TODO APP',
+            theme: ThemeData(
+              colorScheme: lightColorScheme,
+              useMaterial3: true,
+            ),
+            darkTheme: ThemeData(
+              useMaterial3: true,
+              colorScheme: darkColorScheme,
+            ),
+            home: child, //const MainScreen(),
+            );
+      },
+      child: const MainScreen(),
+    );
   }
 }

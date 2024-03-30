@@ -5,7 +5,7 @@ class Api {
   Api(){
     dio = Dio(
       BaseOptions(
-        baseUrl: "https://apiweb-test.isaprefundacion.cl/api",
+        baseUrl: "https://apiweb.isaprefundacion.cl/api",
         connectTimeout:  const Duration(seconds: 30000),
         receiveTimeout:  const Duration(seconds: 30000),
       )

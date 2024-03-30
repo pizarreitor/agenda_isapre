@@ -93,29 +93,23 @@ abstract class AppLocalizations {
     Locale('es')
   ];
 
-  /// No description provided for @taskForDo.
+  /// No description provided for @addDetail.
   ///
   /// In en, this message translates to:
-  /// **'Task for do'**
-  String get taskForDo;
+  /// **'Add detail'**
+  String get addDetail;
 
-  /// No description provided for @taskFinalized.
+  /// No description provided for @addTask.
   ///
   /// In en, this message translates to:
-  /// **'Completed tasks'**
-  String get taskFinalized;
+  /// **'Add task'**
+  String get addTask;
 
-  /// No description provided for @save.
+  /// No description provided for @all.
   ///
   /// In en, this message translates to:
-  /// **'Save'**
-  String get save;
-
-  /// No description provided for @update.
-  ///
-  /// In en, this message translates to:
-  /// **'Update'**
-  String get update;
+  /// **'All'**
+  String get all;
 
   /// No description provided for @allTask.
   ///
@@ -123,11 +117,11 @@ abstract class AppLocalizations {
   /// **'All task'**
   String get allTask;
 
-  /// No description provided for @finalized.
+  /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'Completed'**
-  String get finalized;
+  /// **'Cancel'**
+  String get cancel;
 
   /// No description provided for @confirm.
   ///
@@ -141,23 +135,47 @@ abstract class AppLocalizations {
   /// **'Do you want to delete the task?'**
   String get confirmDelete;
 
+  /// No description provided for @detail.
+  ///
+  /// In en, this message translates to:
+  /// **'Detail'**
+  String get detail;
+
+  /// No description provided for @finalized.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get finalized;
+
+  /// No description provided for @finalizedTaskMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Task complete'**
+  String get finalizedTaskMsg;
+
   /// No description provided for @okDelete.
   ///
   /// In en, this message translates to:
   /// **'Yes, delete'**
   String get okDelete;
 
-  /// No description provided for @cancel.
+  /// No description provided for @save.
   ///
   /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
+  /// **'Save'**
+  String get save;
 
-  /// No description provided for @addTask.
+  /// No description provided for @taskFinalized.
   ///
   /// In en, this message translates to:
-  /// **'Add task'**
-  String get addTask;
+  /// **'Completed tasks'**
+  String get taskFinalized;
+
+  /// No description provided for @taskForDo.
+  ///
+  /// In en, this message translates to:
+  /// **'Task for do'**
+  String get taskForDo;
 
   /// No description provided for @title.
   ///
@@ -165,29 +183,17 @@ abstract class AppLocalizations {
   /// **'Title'**
   String get title;
 
-  /// No description provided for @detail.
-  ///
-  /// In en, this message translates to:
-  /// **'Detail'**
-  String get detail;
-
-  /// No description provided for @addDetail.
-  ///
-  /// In en, this message translates to:
-  /// **'Add detail'**
-  String get addDetail;
-
-  /// No description provided for @all.
-  ///
-  /// In en, this message translates to:
-  /// **'All'**
-  String get all;
-
   /// No description provided for @titleApp.
   ///
   /// In en, this message translates to:
   /// **'TODO APP'**
   String get titleApp;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

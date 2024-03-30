@@ -2,6 +2,7 @@ import 'package:agenda_isapre/main_page/main_state.dart';
 import 'package:agenda_isapre/model/task_model.dart';
 import 'package:agenda_isapre/view_model/task/task_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -27,7 +28,8 @@ class TaskFormPageState extends State<TaskFormPage> {
   }
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
+    var themeColor = Theme.of(context).colorScheme;
     TextTheme textTheme = Theme.of(context).textTheme;
     taskState = Provider.of<MainState>(context).taskState;
     final localizations = AppLocalizations.of(context)!;
@@ -35,7 +37,8 @@ class TaskFormPageState extends State<TaskFormPage> {
     showText();
     return Scaffold(
       appBar: AppBar(
-        title: Text(localizations.addTask),
+        backgroundColor: themeColor.primaryContainer,
+        title: Text(localizations.addTask, style: TextStyle(fontSize: 23.sp),),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(25),

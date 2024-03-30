@@ -3,6 +3,7 @@ import 'package:agenda_isapre/model/task_model.dart';
 import 'package:agenda_isapre/view_model/task/task_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -31,7 +32,7 @@ class TaskFinalicedListViewState extends State<TaskFinalicedListView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localizations.taskFinalized),
+        title: Text(localizations.taskFinalized, style: TextStyle(fontSize: 23.sp),),
       ),
       body: Observer(
         builder: (_) => taskFinalicedState.loading.value
@@ -43,8 +44,8 @@ class TaskFinalicedListViewState extends State<TaskFinalicedListView> {
                   TaskModel taskFinalicedModel = taskFinalicedState.tasksFinaliced[index];
                   return Card(
                     child: ListTile(
-                      title: Text(taskFinalicedModel.titulo),
-                      subtitle: Text(taskFinalicedModel.detalle),
+                      title: Text(taskFinalicedModel.titulo, style: TextStyle(fontSize: 18.sp),),
+                      subtitle: Text(taskFinalicedModel.detalle, style: TextStyle(fontSize: 15.sp),),
                     ),
                   );
                 },

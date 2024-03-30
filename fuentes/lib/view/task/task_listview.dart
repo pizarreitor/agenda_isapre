@@ -3,11 +3,12 @@ import 'package:agenda_isapre/model/task_model.dart';
 import 'package:agenda_isapre/view/task/task_form_page.dart';
 import 'package:agenda_isapre/view_model/task/task_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class TaskListView extends StatefulWidget {
   const TaskListView({super.key});
@@ -19,6 +20,7 @@ class TaskListView extends StatefulWidget {
 class TaskListViewState extends State<TaskListView> {
   late TaskState taskState;
 
+
   @override
   void initState() {
     super.initState();
@@ -29,10 +31,14 @@ class TaskListViewState extends State<TaskListView> {
   Widget build(BuildContext context) {
     taskState = Provider.of<MainState>(context).taskState;
     final localizations = AppLocalizations.of(context)!;
+    final themeColor = Theme.of(context).colorScheme;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(localizations.allTask),
+          title: Text(
+            localizations.allTask,
+            style: TextStyle(fontSize: 23.sp),
+          ),
         ),
         body: Observer(
             builder: (_) => taskState.loading.value
@@ -41,8 +47,7 @@ class TaskListViewState extends State<TaskListView> {
                     itemCount: taskState.tasks.length,
                     itemBuilder: (context, index) {
                       TaskModel taskModel = taskState.tasks[index];
-                      return Card
-                      (
+                      return Card(
                           child: Slidable(
                         endActionPane: ActionPane(
                           motion: const ScrollMotion(),
@@ -50,9 +55,14 @@ class TaskListViewState extends State<TaskListView> {
                             SlidableAction(
                               onPressed: (_) {
                                 taskState.finalizeTask(taskModel);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(localizations.finalizedTaskMsg, style: TextStyle(fontSize: 23.sp)),
+                                  ),
+                                );
                               },
-                              backgroundColor: Colors.greenAccent,
-                              foregroundColor: Colors.white,
+                              backgroundColor: themeColor.secondaryContainer,//  Colors.greenAccent,
+                              foregroundColor: themeColor.onSecondaryContainer,// Colors.white,
                               icon: Icons.check_circle_rounded,
                               label: localizations.finalized,
                             ),
@@ -63,17 +73,18 @@ class TaskListViewState extends State<TaskListView> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon: const Icon(Icons.edit),
+                                icon: Icon(Icons.edit, color: themeColor.tertiary,),
                                 onPressed: () {
                                   taskState.addCurrentTask(taskModel);
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => const TaskFormPage()));
+                                          builder: (_) =>
+                                              const TaskFormPage()));
                                 },
                               ),
                               IconButton(
-                                icon: const Icon(Icons.delete),
+                                icon: Icon(Icons.delete, color: themeColor.tertiary,),
                                 onPressed: () {
                                   showDialog(
                                       context: context,
@@ -83,15 +94,26 @@ class TaskListViewState extends State<TaskListView> {
                                 },
                               ),
                               IconButton(
-                                icon: const Icon(Icons.done),
+                                icon: Icon(Icons.done), color: themeColor.tertiary,
                                 onPressed: () {
                                   taskState.finalizeTask(taskModel);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(localizations.finalizedTaskMsg, style: TextStyle(fontSize: 23.sp)),
+                                  ),
+                                );
                                 },
                               ),
                             ],
                           ),
-                          title: Text(taskModel.titulo),
-                          subtitle: Text(taskModel.detalle),
+                          title: Text(
+                            taskModel.titulo,
+                            style: TextStyle(fontSize: 18.sp),
+                          ),
+                          subtitle: Text(
+                            taskModel.detalle,
+                            style: TextStyle(fontSize: 15.sp),
+                          ),
                           onTap: () {
                             // taskState.addCurrentTask(taskModel);
                             // Navigator.push(
@@ -106,7 +128,7 @@ class TaskListViewState extends State<TaskListView> {
 
   AlertDialog alertDelete(context, taskModel) {
     final localizations = AppLocalizations.of(context)!;
-    
+
     return AlertDialog(
       title: Text(localizations.confirm),
       content: Text(localizations.confirmDelete),

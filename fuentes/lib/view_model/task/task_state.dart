@@ -54,7 +54,6 @@ abstract class _TaskStateBase with Store {
   @action
   finalizeTask(TaskModel taskModel)async{
     await _postRepoImpl.finalizeTask(taskModel.idTarea);
-    taskModel.titulo += " (S)";
     tasks[tasks.indexWhere((element) => element.idTarea == taskModel.idTarea)] = taskModel;    
     //tasks.removeWhere((element) => element ==taskModel);
   }
